@@ -50,6 +50,58 @@ const buildTagIds = (data: LeadData): number[] => {
   return tagIds;
 };
 
+// Build field values for AC custom fields
+const buildFieldValues = (data: LeadData): Array<{field: number, value: string}> => {
+  const fieldValues: Array<{field: number, value: string}> = [];
+
+  // Perfil resultado
+  if (data.perfilResultado) {
+    fieldValues.push({
+      field: AC_CONFIG.fields.perfil.id,
+      value: data.perfilResultado
+    });
+  }
+
+  // Lead score
+  if (data.leadScore !== undefined) {
+    fieldValues.push({
+      field: AC_CONFIG.fields.score.id,
+      value: String(data.leadScore)
+    });
+
+    // Temperatura baseada no score
+    const temperatura = classificarLead(data.leadScore);
+    fieldValues.push({
+      field: AC_CONFIG.fields.temperatura.id,
+      value: temperatura
+    });
+  }
+
+  // Situacao
+  if (data.situacao) {
+    fieldValues.push({
+      field: AC_CONFIG.fields.situacao.id,
+      value: data.situacao
+    });
+  }
+
+  // Disponibilidade evento
+  if (data.disponibilidadeEvento) {
+    fieldValues.push({
+      field: AC_CONFIG.fields.disponibilidadeEvento.id,
+      value: data.disponibilidadeEvento
+    });
+  }
+
+  // Data de captura
+  fieldValues.push({
+    field: AC_CONFIG.fields.dataCaptura.id,
+    value: new Date().toISOString().split('T')[0]
+  });
+
+  return fieldValues;
+};
+
 export function useLeadCapture(): UseLeadCaptureReturn {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -68,6 +120,9 @@ export function useLeadCapture(): UseLeadCaptureReturn {
       const firstName = nameParts[0] || '';
       const lastName = nameParts.slice(1).join(' ') || '';
 
+      // Build field values para campos customizados
+      const fieldValues = buildFieldValues(data);
+
       // Payload para API Proxy
       const payload = {
         email: data.email,
@@ -78,7 +133,7 @@ export function useLeadCapture(): UseLeadCaptureReturn {
         isca: 'quiz-diagnostico-ia',
         listId: AC_CONFIG.list.id,
         tags: tagIds,
-        fieldValues: [],
+        fieldValues: fieldValues,
         meta: {
           situacao: data.situacao,
           disponibilidadeEvento: data.disponibilidadeEvento,

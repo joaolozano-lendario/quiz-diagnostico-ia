@@ -514,7 +514,7 @@ export const ctasDinamicos: Record<UrgencyType, CTADinamico> = {
       'Garantia: funciona ou devolvemos seu dinheiro'
     ],
     cta: 'QUERO IMPLEMENTAR EM 48H',
-    url: 'https://imersao.academialendaria.ai/',
+    url: 'https://imersao.academialendaria.ai/?utm_source=quiz&utm_medium=lp&utm_content=cta-resultado-urgente&utm_campaign=imersao-jan26&src=quiz_lp',
     nota: '24 e 25 de Janeiro de 2026 | 100% Online | Vagas Limitadas'
   },
   'breve': {
@@ -528,7 +528,7 @@ export const ctasDinamicos: Record<UrgencyType, CTADinamico> = {
       'Garantia de resultado ou dinheiro de volta'
     ],
     cta: 'GARANTIR MINHA VAGA',
-    url: 'https://imersao.academialendaria.ai/',
+    url: 'https://imersao.academialendaria.ai/?utm_source=quiz&utm_medium=lp&utm_content=cta-resultado-breve&utm_campaign=imersao-jan26&src=quiz_lp',
     nota: '24 e 25 de Janeiro de 2026 | 100% Online'
   },
   'medio-prazo': {
@@ -542,7 +542,7 @@ export const ctasDinamicos: Record<UrgencyType, CTADinamico> = {
       'Sem pressao - o plano ja te da um bom comeco'
     ],
     cta: 'CONHECER A IMERSAO',
-    url: 'https://imersao.academialendaria.ai/',
+    url: 'https://imersao.academialendaria.ai/?utm_source=quiz&utm_medium=lp&utm_content=cta-resultado-medio&utm_campaign=imersao-jan26&src=quiz_lp',
     nota: 'Opcional: 24 e 25 de Janeiro de 2026'
   },
   'pesquisando': {
@@ -556,7 +556,7 @@ export const ctasDinamicos: Record<UrgencyType, CTADinamico> = {
       'Quando quiser acelerar, estamos aqui'
     ],
     cta: 'SABER MAIS SOBRE A IMERSAO',
-    url: 'https://imersao.academialendaria.ai/',
+    url: 'https://imersao.academialendaria.ai/?utm_source=quiz&utm_medium=lp&utm_content=cta-resultado-pesquisando&utm_campaign=imersao-jan26&src=quiz_lp',
     nota: 'Sem compromisso - explore no seu tempo'
   }
 };
@@ -791,7 +791,7 @@ export const eventCTA = {
     'Acesso a comunidade de empresarios que usam IA'
   ],
   guarantee: 'Garantia: funciona ou devolvemos seu dinheiro',
-  buttonUrl: 'https://imersao.academialendaria.ai/',
+  buttonUrl: 'https://imersao.academialendaria.ai/?utm_source=quiz&utm_medium=lp&utm_content=cta-evento&utm_campaign=imersao-jan26&src=quiz_lp',
   buttonText: 'QUERO IMPLEMENTAR EM 48H',
   urgency: 'Vagas limitadas',
   price: 'R$ 297'

@@ -5,6 +5,7 @@ import { useInView } from '../hooks/useInView';
 import { useLeadCapture } from '../hooks/useLeadCapture';
 import { quizProfiles, type ProfileType } from '../data/content';
 import { EventCTA } from '../components/EventCTA';
+import { Footer } from '../components/Footer';
 
 // Diamond Logo - Lendaria
 function DiamondLogo({ className = "w-12 h-12", fill = "#000000" }: { className?: string; fill?: string }) {
@@ -242,14 +243,7 @@ export function ResultadoPage() {
       </main>
 
       {/* Footer */}
-      <footer className="py-8 px-6 bg-gray-50 border-t border-gray-100">
-        <div className="max-w-4xl mx-auto text-center">
-          <DiamondLogo className="w-8 h-8 mx-auto mb-4" fill="#9CA3AF" />
-          <p className="text-gray-500 text-sm">
-            Academia Lendar[IA] - Eternizando legados atraves da IA
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

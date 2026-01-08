@@ -70,6 +70,16 @@ export const AC_CONFIG = {
   // API Proxy endpoint
   apiEndpoint: 'https://api-proxy-activecampaign.vercel.app/api/lead/qualify',
 
+  // Campos customizados - IDs criados em 08/Jan/2026
+  fields: {
+    perfil: { id: 171, perstag: 'QUIZ_PERFIL' },
+    score: { id: 172, perstag: 'QUIZ_SCORE' },
+    temperatura: { id: 173, perstag: 'QUIZ_TEMPERATURA' },
+    situacao: { id: 174, perstag: 'QUIZ_SITUACAO' },
+    disponibilidadeEvento: { id: 175, perstag: 'QUIZ_DISPONIBILIDADE_EVENTO' },
+    dataCaptura: { id: 176, perstag: 'QUIZ_DATA_CAPTURA' }
+  },
+
   // Mapeamento de perfil para tag ID
   getPerfilTagId: (perfil: 'sobrecarregado' | 'curioso-travado' | 'tecnico-frustrado' | 'lider-isolado'): number => {
     const map: Record<string, number> = {
