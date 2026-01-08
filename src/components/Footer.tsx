@@ -9,8 +9,8 @@ function DiamondLogo({ className = "w-12 h-12", fill = "#000000" }: { className?
   );
 }
 
-// URL da Imersao - Link estrategico
-const IMERSAO_URL = 'https://lendario.ai/imersao/';
+// URL da Imersao - Link estrategico com UTMs
+const IMERSAO_URL = 'https://imersao.academialendaria.ai/?utm_source=quiz&utm_medium=lp&utm_content=footer&utm_campaign=imersao-jan26&src=quiz_lp';
 
 export function Footer() {
   return (
