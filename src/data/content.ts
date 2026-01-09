@@ -24,15 +24,15 @@ export const eventInfo = {
 // ----------------------------------------------------------------------------
 
 export const heroContent = {
-  badge: 'DIAGNOSTICO GRATUITO | 3 MINUTOS',
-  headline: 'Descubra seu perfil de empresario com IA',
-  subheadline: 'Responda 8 perguntas e receba um plano de acao personalizado para implementar IA no seu negocio - mesmo que voce ja tenha tentado e nao funcionou.',
-  cta: 'Comecar Diagnostico',
+  badge: '3 MINUTOS | RESULTADO IMEDIATO',
+  headline: 'Por que seu concorrente trabalha menos e fatura mais?',
+  subheadline: 'Enquanto voce trabalha 12h por dia, tem empresario do seu setor usando IA pra fazer em 1 hora o que voce leva o dia inteiro. Descubra o que esta te travando.',
+  cta: 'Descobrir Agora',
 
   // Prova social sutil
   socialProof: {
     number: '2.847',
-    text: 'empresarios ja fizeram este diagnostico'
+    text: 'empresarios ja descobriram o que os travava'
   }
 };
 
@@ -794,5 +794,5 @@ export const eventCTA = {
   buttonUrl: 'https://imersao.academialendaria.ai/?utm_source=quiz&utm_medium=lp&utm_content=cta-evento&utm_campaign=imersao-jan26&src=quiz_lp',
   buttonText: 'QUERO IMPLEMENTAR EM 48H',
   urgency: 'Vagas limitadas',
-  price: 'R$ 297'
+  price: 'R$ 348'
 };
