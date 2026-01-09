@@ -1,10 +1,11 @@
-import { useState, FormEvent } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Mail, User, Phone, ChevronRight, Sparkles, Target, Zap, Bot } from 'lucide-react';
 import { heroContent, qualificacaoOptions, eventInfo } from '../data/content';
 import { useInView } from '../hooks/useInView';
 import { useLeadCapture } from '../hooks/useLeadCapture';
 import { Footer } from '../components/Footer';
+import { getPersistedLead, saveLeadToStorage } from '../utils/leadPersistence';
 
 // Diamond Logo - Lendaria
 function DiamondLogo({ className = "w-12 h-12", fill = "#000000" }: { className?: string; fill?: string }) {
@@ -51,6 +52,19 @@ export function CapturaPage() {
     disponibilidadeEvento: ''
   });
 
+  // Carrega dados persistidos ao montar (localStorage ou URL params)
+  useEffect(() => {
+    const persisted = getPersistedLead();
+    if (persisted) {
+      setFormData(prev => ({
+        ...prev,
+        nome: persisted.nome || prev.nome,
+        email: persisted.email || prev.email,
+        whatsapp: persisted.whatsapp || prev.whatsapp
+      }));
+    }
+  }, []);
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
@@ -61,6 +75,14 @@ export function CapturaPage() {
       whatsapp: formData.whatsapp,
       situacao: formData.situacao,
       disponibilidadeEvento: formData.disponibilidadeEvento
+    });
+
+    // Persiste dados do lead para cross-sell entre iscas
+    saveLeadToStorage({
+      nome: formData.nome,
+      email: formData.email,
+      whatsapp: formData.whatsapp,
+      lastIsca: 'quiz-diagnostico-ia'
     });
 
     // Navigate to quiz with params
@@ -138,18 +160,18 @@ export function CapturaPage() {
         <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-6">
           <FeatureCard
             icon={Target}
-            title="Identifique seu perfil"
-            description="Descubra qual dos 4 perfis de uso de IA voce se encaixa"
+            title="Descubra o gargalo"
+            description="Por que voce trabalha tanto e parece que nada muda"
           />
           <FeatureCard
             icon={Zap}
-            title="Entenda suas barreiras"
-            description="Saiba exatamente o que esta te impedindo de usar IA"
+            title="Veja o custo real"
+            description="Quanto essa trava esta te custando em tempo e dinheiro"
           />
           <FeatureCard
             icon={Bot}
-            title="Receba seu plano"
-            description="Um caminho claro para implementar IA no seu negocio"
+            title="Saia com um plano"
+            description="Passos especificos pro seu caso, nao teoria generica"
           />
         </div>
       </section>
@@ -163,10 +185,10 @@ export function CapturaPage() {
             }`}
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-2">
-              Comece seu diagnostico
+              Responda em 3 minutos
             </h2>
             <p className="text-gray-600">
-              Preencha seus dados para iniciar o quiz
+              E descubra o que esta te travando
             </p>
           </div>
 
